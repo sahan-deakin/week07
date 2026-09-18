@@ -4,7 +4,7 @@ on:
   # Manual trigger for the workflow
   workflow_dispatch:
 
-  # Trigger on code changes pushed to main
+  # Trigger on changes pushed to main
   push:
     branches:
       - main

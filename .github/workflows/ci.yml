@@ -4,6 +4,11 @@ on:
   # Manual trigger for the workflow
   workflow_dispatch:
 
+  # Trigger on code changes pushed to main
+  push:
+    branches:
+      - main
+
 
 jobs:
 
@@ -77,11 +82,13 @@ jobs:
 
     steps:
 
+      # v5 runs on Node 24
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
+      # v6 runs on Node 24
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -136,11 +143,13 @@ jobs:
 
     steps:
 
+      # v5 runs on Node 24
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
+      # v3 runs on Node 24
       - name: Login to Azure
-        uses: azure/login@v2
+        uses: azure/login@v3
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
